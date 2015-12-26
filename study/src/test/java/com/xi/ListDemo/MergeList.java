@@ -11,15 +11,19 @@ import java.util.List;
 public class MergeList {
     public void queryList() {
         List<Object[]> incomeList = new ArrayList();
-        incomeList.add(new Object[]{1, "2015-10-11", 1, "LZL-980-2-402-D-20120511", 22.11, 0});
-        incomeList.add(new Object[]{2, "2015-10-12", 2, "GYL-99-6-602-D-20120511", 55.55, 0});
-        incomeList.add(new Object[]{3, "2015-10-13", 3, "GYL-99-6-602-D-20120511", 42.00, 0});
+        incomeList.add(new Object[]{1, "2015-10-11", 1, "", 22.11, 0});
+        incomeList.add(new Object[]{2, "2015-10-12", 2, "", 55.55, 0});
+        incomeList.add(new Object[]{3, "2015-10-13", 3, "", 42.00, 0});
         List<Object[]> costList = new ArrayList();
         costList.add(new Object[]{1, "2015-10-11", 0, "", 0, 20.22});
-        costList.add(new Object[]{2, "2015-10-12", 2, "", 0, 33.33});
+        costList.add(new Object[]{2, "2015-10-12", 0, "", 0, 33.33});
         costList.add(new Object[]{3, "2015-10-13", 0, "", 0, 32.00});
-        //combine two list
-        List<Employee> list = combineList(incomeList, costList);
+        List<Object[]> list3 = new ArrayList();
+        list3.add(new Object[]{1, "2015-10-11", 0, "LZL-980-2-402-D-20120511", 0, 0});
+        list3.add(new Object[]{2, "2015-10-12", 0, "GYL-99-6-602-D-20120511", 0, 0});
+        list3.add(new Object[]{3, "2015-10-13", 0, "GYL-99-6-602-D-20120511", 0, 0});
+        //combine three list
+        List<Employee> list = combineList(incomeList, costList,list3);
         if (list.size() > 0) {
             for (Employee emp : list) {
                 System.out.println("emp.getEmpId():" + emp.getEmpId());
@@ -34,7 +38,7 @@ public class MergeList {
         }
     }
 
-    public List<Employee> combineList(List<Object[]> resList1, List<Object[]> resList2) {
+    public List<Employee> combineList(List<Object[]> resList1, List<Object[]> resList2, List<Object[]> resList3) {
         List<Object[]> paraList = new ArrayList<Object[]>();
         if (resList1 != null) {
             paraList.addAll(resList1);
@@ -44,6 +48,9 @@ public class MergeList {
         }
         if (resList2 != null) {
             paraList.addAll(resList2);
+        }
+        if (resList3 != null) {
+            paraList.addAll(resList3);
         }
         List<Employee> list = new ArrayList<Employee>();
         for (Object[] obj : paraList) {

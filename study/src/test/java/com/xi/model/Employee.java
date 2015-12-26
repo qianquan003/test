@@ -28,12 +28,12 @@ public class Employee {
                 return false;
             }
         }
-        if (contratId == null) {
-            if (obj.contratId != null) {
+        if (entryDate == null) {
+            if (obj.entryDate != null) {
                 return false;
             }
         } else {
-            if (!contratId.equals(obj.contratId)) {
+            if (!entryDate.equals(obj.entryDate)) {
                 return false;
             }
         }
