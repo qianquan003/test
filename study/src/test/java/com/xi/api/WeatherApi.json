@@ -1,0 +1,90 @@
+{
+  "errNum": 0,
+  "errMsg": "success",
+  "retData": [
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u4e0a\u6d77",
+      "name_en": "shanghai",
+      "area_id": "101020100"
+    },
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u95f5\u884c",
+      "name_en": "minhang",
+      "area_id": "101020200"
+    },
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u5b9d\u5c71",
+      "name_en": "baoshan",
+      "area_id": "101020300"
+    },
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u5609\u5b9a",
+      "name_en": "jiading",
+      "area_id": "101020500"
+    },
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u6d66\u4e1c\u5357\u6c47",
+      "name_en": "nanhui",
+      "area_id": "101020600"
+    },
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u91d1\u5c71",
+      "name_en": "jinshan",
+      "area_id": "101020700"
+    },
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u9752\u6d66",
+      "name_en": "qingpu",
+      "area_id": "101020800"
+    },
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u677e\u6c5f",
+      "name_en": "songjiang",
+      "area_id": "101020900"
+    },
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u5949\u8d24",
+      "name_en": "fengxian",
+      "area_id": "101021000"
+    },
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u5d07\u660e",
+      "name_en": "chongming",
+      "area_id": "101021100"
+    },
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u5f90\u5bb6\u6c47",
+      "name_en": "xujiahui",
+      "area_id": "101021200"
+    },
+    {
+      "province_cn": "\u4e0a\u6d77",
+      "district_cn": "\u4e0a\u6d77",
+      "name_cn": "\u6d66\u4e1c",
+      "name_en": "pudong",
+      "area_id": "101021300"
+    }
+  ]
+}
