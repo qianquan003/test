@@ -8,3 +8,4 @@ production_app.properties
 src/main/resources/resources/bower_components
 target
 src/test/resources/config.properties
+src/main/resources/config.properties

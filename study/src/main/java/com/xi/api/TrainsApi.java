@@ -1,22 +1,34 @@
 package com.xi.api;
 
-import com.xi.util.PropertiesUtil;
+import com.xi.util.PropertiesUtils;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
 
 /**
  * Created by Administrator on 2015/12/30.
  */
-public class ChangetopinyinApi {
+public class TrainsApi {
     public static void main(String[] args) {
-        String httpUrl = "http://apis.baidu.com/xiaogg/changetopinyin/topinyin";
-        String httpArg = "str=%E7%99%BE%E5%BA%A6&type=json&traditional=0&accent=0&letter=0&only_chinese=0";
+        String httpUrl = "http://apis.baidu.com/qunar/qunar_train_service/traindetail";
+        String httpArg = "version=1.0&train=G1344&from=%E6%96%B0%E4%BD%99%E5%8C%97&to=%E4%B8%8A%E6%B5%B7%E8%99%B9%E6%A1%A5&date=2016-02-18";
         String jsonResult = request(httpUrl, httpArg);
         System.out.println(jsonResult);
+        try {
+            //urlencode
+//            String encode=URLEncoder.encode("new","UTF-8");
+//            System.out.println(encode);
+            //urldecode
+            String urldecode= URLDecoder.decode("%E4%B8%8A%E6%B5%B7%E8%99%B9%E6%A1%A5", "UTF-8");
+            System.out.println(urldecode);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -36,7 +48,7 @@ public class ChangetopinyinApi {
                     .openConnection();
             connection.setRequestMethod("GET");
             // ÃÓ»ÎapikeyµΩHTTP header
-            connection.setRequestProperty("apikey", PropertiesUtil.getProperty("apikey"));
+            connection.setRequestProperty("apikey", PropertiesUtils.getProperty("apikey"));
             connection.connect();
             InputStream is = connection.getInputStream();
             reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
