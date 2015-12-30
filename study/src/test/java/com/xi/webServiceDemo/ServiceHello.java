@@ -7,7 +7,7 @@ import javax.xml.ws.Endpoint;
 public class ServiceHello {
 
 	/**
-	 * 供客户端调用的方法
+	 * offer client to call method
 	 * 
 	 * @param name
 	 * @return
