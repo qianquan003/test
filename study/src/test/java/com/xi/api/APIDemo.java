@@ -14,7 +14,7 @@ import java.net.URL;
 public class APIDemo {
     public static void main(String[] args) {
         String httpUrl = "http://apis.baidu.com/baidu_mobile_security/phone_number_service/phone_information_query";
-        String httpArg = "tel=075561550985%2C03936038331&location=true";
+        String httpArg = "tel=07946592695%2C03936038331&location=true";
         String jsonResult = request(httpUrl, httpArg);
         System.out.println(jsonResult);
     }
