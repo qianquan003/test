@@ -17,16 +17,18 @@ import java.text.DecimalFormat;
  */
 public class CountDemo {
     public static void main(String[] args) {
-        int a=24;
-        int b=76339;
-//        Double d=(Math.round((a/b)*10000)/10000.0);
-        DecimalFormat df=new DecimalFormat("####.0000");
-//        Double d=Double.valueOf(df.format((double)a/b));//格式化后输出的是3.0E-4
-//        System.out.println(df.format((double)a/b));
+        Double a=1099.95;
+        Double b=2100.00;
+        Double d=a/b;
+//        d = Math.floor(d*Math.pow(10,4))/Math.pow(10,4);//截取四位长度
+//        Double d3=(Math.round((a/b)*10000)/10000.0);
+        DecimalFormat df=new DecimalFormat("#.####");
+        Double d2=Double.valueOf(df.format(d));//格式化后输出的是3.0E-4
+        System.out.println(d2);
         //格式化小数点位数
-        double cashFlow=23.43421;
-        BigDecimal dou = new BigDecimal(cashFlow);
-        double dcashFlow = dou.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-        System.out.println(dcashFlow);
+//        double cashFlow=23.43421;
+//        BigDecimal dou = new BigDecimal(cashFlow);
+//        double dcashFlow = dou.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+//        System.out.println(dcashFlow);
     }
 }
