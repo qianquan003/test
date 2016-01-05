@@ -1,5 +1,6 @@
 package com.xi.countDemo;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 /**
@@ -21,6 +22,11 @@ public class CountDemo {
 //        Double d=(Math.round((a/b)*10000)/10000.0);
         DecimalFormat df=new DecimalFormat("####.0000");
 //        Double d=Double.valueOf(df.format((double)a/b));//格式化后输出的是3.0E-4
-        System.out.println(df.format((double)a/b));
+//        System.out.println(df.format((double)a/b));
+        //格式化小数点位数
+        double cashFlow=23.43421;
+        BigDecimal dou = new BigDecimal(cashFlow);
+        double dcashFlow = dou.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        System.out.println(dcashFlow);
     }
 }
