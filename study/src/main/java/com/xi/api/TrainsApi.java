@@ -32,9 +32,9 @@ public class TrainsApi {
     }
 
     /**
-     * @param urlAll  :请求接口
-     * @param httpArg :参数
-     * @return 返回结果
+     * @param urlAll  :璇锋眰鎺ュ彛
+     * @param httpArg :鍙傛暟
+     * @return 杩斿洖缁撴灉
      */
     public static String request(String httpUrl, String httpArg) {
         BufferedReader reader = null;
@@ -47,7 +47,7 @@ public class TrainsApi {
             HttpURLConnection connection = (HttpURLConnection) url
                     .openConnection();
             connection.setRequestMethod("GET");
-            // 填入apikey到HTTP header
+            // 濉叆apikey鍒癏TTP header
             connection.setRequestProperty("apikey", PropertiesUtils.getProperty("apikey"));
             connection.connect();
             InputStream is = connection.getInputStream();
