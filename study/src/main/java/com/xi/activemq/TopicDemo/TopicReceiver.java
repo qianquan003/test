@@ -25,31 +25,31 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 /**
- * <b>function:</b> ÏûÏ¢½ÓÊÕÕß£» ÒÀÀµhawtbuf-1.9.jar
+ * <b>function:</b> æ¶ˆæ¯æ¥æ”¶è€…ï¼› ä¾èµ–hawtbuf-1.9.jar
  *
  * @version 1.0
  */
 public class TopicReceiver {
-    // tcp µØÖ·
+    // tcp åœ°å€
     public static final String BROKER_URL = "tcp://localhost:61616";
-    // Ä¿±ê£¬ÔÚActiveMQ¹ÜÀíÔ±¿ØÖÆÌ¨´´½¨ http://localhost:8161/admin/queues.jsp
+    // ç›®æ ‡ï¼Œåœ¨ActiveMQç®¡ç†å‘˜æ§åˆ¶å°åˆ›å»º http://localhost:8161/admin/queues.jsp
     public static final String TARGET = "hoo.mq.topic";
 
     public static void run() throws Exception {
         TopicConnection connection = null;
         TopicSession session = null;
         try {
-            // ´´½¨Á´½Ó¹¤³§
+            // åˆ›å»ºé“¾æ¥å·¥å‚
             TopicConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, BROKER_URL);
-            // Í¨¹ı¹¤³§´´½¨Ò»¸öÁ¬½Ó
+            // é€šè¿‡å·¥å‚åˆ›å»ºä¸€ä¸ªè¿æ¥
             connection = factory.createTopicConnection();
-            // Æô¶¯Á¬½Ó
+            // å¯åŠ¨è¿æ¥
             connection.start();
-            // ´´½¨Ò»¸ösession»á»°
+            // åˆ›å»ºä¸€ä¸ªsessionä¼šè¯
             session = connection.createTopicSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
-            // ´´½¨Ò»¸öÏûÏ¢¶ÓÁĞ
+            // åˆ›å»ºä¸€ä¸ªæ¶ˆæ¯é˜Ÿåˆ—
             Topic topic = session.createTopic(TARGET);
-            // ´´½¨ÏûÏ¢ÖÆ×÷Õß
+            // åˆ›å»ºæ¶ˆæ¯åˆ¶ä½œè€…
             TopicSubscriber subscriber = session.createSubscriber(topic);
             subscriber.setMessageListener(new MessageListener() {
 
@@ -57,7 +57,7 @@ public class TopicReceiver {
                     if (msg != null) {
                         MapMessage map = (MapMessage) msg;
                         try {
-                            System.out.println(map.getLong("time") + "½ÓÊÕ#" + map.getString("text"));
+                            System.out.println(map.getLong("time") + "æ¥æ”¶#" + map.getString("text"));
                         } catch (JMSException e) {
                             e.printStackTrace();
                         }
@@ -65,14 +65,14 @@ public class TopicReceiver {
                 }
 
             });
-            // ĞİÃß100msÔÙ¹Ø±Õ
+            // ä¼‘çœ 100mså†å…³é—­
             Thread.sleep(1000 * 100);
-            // Ìá½»»á»°
+            // æäº¤ä¼šè¯
             session.commit();
         } catch (Exception e) {
             throw e;
         } finally {
-            // ¹Ø±ÕÊÍ·Å×ÊÔ´
+            // å…³é—­é‡Šæ”¾èµ„æº
             if (session != null) {
                 session.close();
             }

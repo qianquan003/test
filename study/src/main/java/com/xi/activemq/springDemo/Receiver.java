@@ -9,9 +9,9 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.jms.core.JmsTemplate;
 
 /**
- * <b>function:</b> Spring JMSTemplate ÏûÏ¢½ÓÊÕÕß
+ * <b>function:</b> Spring JMSTemplate æ¶ˆæ¯æ¥æ”¶è€…
  * <p/>
- * Èç¹ûÄãÊÇweb¹¤³Ì£¬ÄÇÄãÔÚĞèÒªÓÃjmsµÄÊ±ºò£¬Ö»ĞèÓÃ×¢ÈëjmsTemplate¼´¿É¡£
+ * å¦‚æœä½ æ˜¯webå·¥ç¨‹ï¼Œé‚£ä½ åœ¨éœ€è¦ç”¨jmsçš„æ—¶å€™ï¼Œåªéœ€ç”¨æ³¨å…¥jmsTemplateå³å¯ã€‚
  */
 public class Receiver {
     public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class Receiver {
         JmsTemplate jmsTemplate = (JmsTemplate) ctx.getBean("jmsTemplate");
         while (true) {
             Map<String, Object> map = (Map<String, Object>) jmsTemplate.receiveAndConvert();
-            System.out.println("ÊÕµ½ÏûÏ¢£º" + map.get("message"));
+            System.out.println("æ”¶åˆ°æ¶ˆæ¯ï¼š" + map.get("message"));
         }
     }
 }

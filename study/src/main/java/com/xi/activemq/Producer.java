@@ -13,7 +13,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 
 /**
- * ÏûÏ¢µÄ·¢ËÍÕß
+ * æ¶ˆæ¯çš„å‘é€è€…
  */
 public class Producer {
     public static void main(String[] args) {
@@ -21,18 +21,18 @@ public class Producer {
         String password = ActiveMQConnection.DEFAULT_PASSWORD;
         String url = ActiveMQConnection.DEFAULT_BROKER_URL;
         String subject = "TOOL.DEFAULT";
-        /**´´½¨Á¬½Ó¹¤³§*/
+        /**åˆ›å»ºè¿æ¥å·¥å‚*/
         ActiveMQConnectionFactory contectionFactory = new ActiveMQConnectionFactory(user, password, url);
 
         try {
-            /**´´½¨Á¬½Ó*/
+            /**åˆ›å»ºè¿æ¥*/
             Connection connection = contectionFactory.createConnection();
-            connection.start();//¿ªÆôÁ¬½Ó
-            /**´´½¨session*/
+            connection.start();//å¼€å¯è¿æ¥
+            /**åˆ›å»ºsession*/
             Session session = connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
-            /**Ö¸¶¨ÏûÏ¢µÄÄ¿µÄµØ*/
+            /**æŒ‡å®šæ¶ˆæ¯çš„ç›®çš„åœ°*/
             Destination destination = session.createQueue(subject);
-            /**´´½¨·¢ËÍÏûÏ¢¶ÔÏó*/
+            /**åˆ›å»ºå‘é€æ¶ˆæ¯å¯¹è±¡*/
             MessageProducer producer = session.createProducer(destination);
 
             for (int i = 0; i <= 2; i++) {
@@ -42,7 +42,7 @@ public class Producer {
                 message.setString("seqnum", String.valueOf(i));
                 Thread.sleep(1000);
                 producer.send(message);
-                System.out.println("·¢ËÍ¶Ë·¢ËÍÏûÏ¢£º" + date);
+                System.out.println("å‘é€ç«¯å‘é€æ¶ˆæ¯ï¼š" + date);
             }
             session.commit();
             session.close();

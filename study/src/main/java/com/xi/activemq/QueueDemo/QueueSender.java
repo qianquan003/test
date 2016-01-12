@@ -19,22 +19,22 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 /**
- * <b>function:</b> Queue ·½Ê½ÏûÏ¢·¢ËÍÕß
+ * <b>function:</b> Queue æ–¹å¼æ¶ˆæ¯å‘é€è€…
  */
 public class QueueSender {
-    // ·¢ËÍ´ÎÊı
+    // å‘é€æ¬¡æ•°
     public static final int SEND_NUM = 5;
-    // tcp µØÖ·
+    // tcp åœ°å€
     public static final String BROKER_URL = "tcp://localhost:61616";
-    // Ä¿±ê£¬ÔÚActiveMQ¹ÜÀíÔ±¿ØÖÆÌ¨´´½¨ http://localhost:8161/admin/queues.jsp
+    // ç›®æ ‡ï¼Œåœ¨ActiveMQç®¡ç†å‘˜æ§åˆ¶å°åˆ›å»º http://localhost:8161/admin/queues.jsp
     public static final String DESTINATION = "hoo.mq.queue";
 
     /**
-     * <b>function:</b> ·¢ËÍÏûÏ¢
+     * <b>function:</b> å‘é€æ¶ˆæ¯
      */
     public static void sendMessage(QueueSession session, javax.jms.QueueSender sender) throws Exception {
         for (int i = 0; i < SEND_NUM; i++) {
-            String message = "·¢ËÍÏûÏ¢µÚ" + (i + 1) + "Ìõ";
+            String message = "å‘é€æ¶ˆæ¯ç¬¬" + (i + 1) + "æ¡";
             MapMessage map = session.createMapMessage();
             map.setString("text", message);
             map.setLong("time", System.currentTimeMillis());
@@ -47,27 +47,27 @@ public class QueueSender {
         QueueConnection connection = null;
         QueueSession session = null;
         try {
-            // ´´½¨Á´½Ó¹¤³§
+            // åˆ›å»ºé“¾æ¥å·¥å‚
             QueueConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, BROKER_URL);
-            // Í¨¹ı¹¤³§´´½¨Ò»¸öÁ¬½Ó
+            // é€šè¿‡å·¥å‚åˆ›å»ºä¸€ä¸ªè¿æ¥
             connection = factory.createQueueConnection();
-            // Æô¶¯Á¬½Ó
+            // å¯åŠ¨è¿æ¥
             connection.start();
-            // ´´½¨Ò»¸ösession»á»°
+            // åˆ›å»ºä¸€ä¸ªsessionä¼šè¯
             session = connection.createQueueSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
-            // ´´½¨Ò»¸öÏûÏ¢¶ÓÁĞ
+            // åˆ›å»ºä¸€ä¸ªæ¶ˆæ¯é˜Ÿåˆ—
             Queue queue = session.createQueue(DESTINATION);
-            // ´´½¨ÏûÏ¢·¢ËÍÕß
+            // åˆ›å»ºæ¶ˆæ¯å‘é€è€…
             javax.jms.QueueSender sender = session.createSender(queue);
-            // ÉèÖÃ³Ö¾Ã»¯Ä£Ê½
+            // è®¾ç½®æŒä¹…åŒ–æ¨¡å¼
             sender.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
             sendMessage(session, sender);
-            // Ìá½»»á»°
+            // æäº¤ä¼šè¯
             session.commit();
         } catch (Exception e) {
             throw e;
         } finally {
-            // ¹Ø±ÕÊÍ·Å×ÊÔ´
+            // å…³é—­é‡Šæ”¾èµ„æº
             if (session != null) {
                 session.close();
             }

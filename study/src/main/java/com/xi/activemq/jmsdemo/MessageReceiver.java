@@ -19,46 +19,46 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 /**
- * <b>function:</b> ÏûÏ¢½ÓÊÕÕß
+ * <b>function:</b> æ¶ˆæ¯æ¥æ”¶è€…
  */
 public class MessageReceiver {
-    // tcp µØÖ·
+    // tcp åœ°å€
     public static final String BROKER_URL = "tcp://localhost:61616";
-    // Ä¿±ê£¬ÔÚActiveMQ¹ÜÀíÔ±¿ØÖÆÌ¨´´½¨ http://localhost:8161/admin/queues.jsp
+    // ç›®æ ‡ï¼Œåœ¨ActiveMQç®¡ç†å‘˜æ§åˆ¶å°åˆ›å»º http://localhost:8161/admin/queues.jsp
     public static final String DESTINATION = "hoo.mq.queue";
 
     public static void run() throws Exception {
         Connection connection = null;
         Session session = null;
         try {
-            // ´´½¨Á´½Ó¹¤³§
+            // åˆ›å»ºé“¾æ¥å·¥å‚
             ConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, BROKER_URL);
-            // Í¨¹ı¹¤³§´´½¨Ò»¸öÁ¬½Ó
+            // é€šè¿‡å·¥å‚åˆ›å»ºä¸€ä¸ªè¿æ¥
             connection = factory.createConnection();
-            // Æô¶¯Á¬½Ó
+            // å¯åŠ¨è¿æ¥
             connection.start();
-            // ´´½¨Ò»¸ösession»á»°
+            // åˆ›å»ºä¸€ä¸ªsessionä¼šè¯
             session = connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
-            // ´´½¨Ò»¸öÏûÏ¢¶ÓÁĞ
+            // åˆ›å»ºä¸€ä¸ªæ¶ˆæ¯é˜Ÿåˆ—
             Destination destination = session.createQueue(DESTINATION);
-            // ´´½¨ÏûÏ¢ÖÆ×÷Õß
+            // åˆ›å»ºæ¶ˆæ¯åˆ¶ä½œè€…
             MessageConsumer consumer = session.createConsumer(destination);
             while (true) {
-                // ½ÓÊÕÊı¾İµÄÊ±¼ä£¨µÈ´ı£© 100 ms
+                // æ¥æ”¶æ•°æ®çš„æ—¶é—´ï¼ˆç­‰å¾…ï¼‰ 100 ms
                 Message message = consumer.receive(1000 * 100);
                 TextMessage text = (TextMessage) message;
                 if (text != null) {
-                    System.out.println("½ÓÊÕ£º" + text.getText());
+                    System.out.println("æ¥æ”¶ï¼š" + text.getText());
                 } else {
                     break;
                 }
             }
-            // Ìá½»»á»°
+            // æäº¤ä¼šè¯
             session.commit();
         } catch (Exception e) {
             throw e;
         } finally {
-            // ¹Ø±ÕÊÍ·Å×ÊÔ´
+            // å…³é—­é‡Šæ”¾èµ„æº
             if (session != null) {
                 session.close();
             }

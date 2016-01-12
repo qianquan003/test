@@ -11,36 +11,36 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 public class Receiver {
     public static void main(String[] args) {
-        // ConnectionFactory £ºÁ¬½Ó¹¤³§£¬JMS ÓÃËü´´½¨Á¬½Ó
+        // ConnectionFactory ï¼šè¿æ¥å·¥å‚ï¼ŒJMS ç”¨å®ƒåˆ›å»ºè¿æ¥
         ConnectionFactory connectionFactory;
-        // Connection £ºJMS ¿Í»§¶Ëµ½JMS Provider µÄÁ¬½Ó
+        // Connection ï¼šJMS å®¢æˆ·ç«¯åˆ°JMS Provider çš„è¿æ¥
         Connection connection = null;
-        // Session£º Ò»¸ö·¢ËÍ»ò½ÓÊÕÏûÏ¢µÄÏß³Ì
+        // Sessionï¼š ä¸€ä¸ªå‘é€æˆ–æ¥æ”¶æ¶ˆæ¯çš„çº¿ç¨‹
         Session session;
-        // Destination £ºÏûÏ¢µÄÄ¿µÄµØ;ÏûÏ¢·¢ËÍ¸øË­.
+        // Destination ï¼šæ¶ˆæ¯çš„ç›®çš„åœ°;æ¶ˆæ¯å‘é€ç»™è°.
         Destination destination;
-        // Ïû·ÑÕß£¬ÏûÏ¢½ÓÊÕÕß
+        // æ¶ˆè´¹è€…ï¼Œæ¶ˆæ¯æ¥æ”¶è€…
         MessageConsumer consumer;
         connectionFactory = new ActiveMQConnectionFactory(
                 ActiveMQConnection.DEFAULT_USER,
                 ActiveMQConnection.DEFAULT_PASSWORD,
                 "tcp://localhost:61616");
         try {
-            // ¹¹Ôì´Ó¹¤³§µÃµ½Á¬½Ó¶ÔÏó
+            // æ„é€ ä»å·¥å‚å¾—åˆ°è¿æ¥å¯¹è±¡
             connection = connectionFactory.createConnection();
-            // Æô¶¯
+            // å¯åŠ¨
             connection.start();
-            // »ñÈ¡²Ù×÷Á¬½Ó
+            // è·å–æ“ä½œè¿æ¥
             session = connection.createSession(Boolean.FALSE,
                     Session.AUTO_ACKNOWLEDGE);
-            // »ñÈ¡session×¢Òâ²ÎÊıÖµxingbo.xu-queueÊÇÒ»¸ö·şÎñÆ÷µÄqueue£¬ĞëÔÚÔÚActiveMqµÄconsoleÅäÖÃ
+            // è·å–sessionæ³¨æ„å‚æ•°å€¼xingbo.xu-queueæ˜¯ä¸€ä¸ªæœåŠ¡å™¨çš„queueï¼Œé¡»åœ¨åœ¨ActiveMqçš„consoleé…ç½®
             destination = session.createQueue("FirstQueue");
             consumer = session.createConsumer(destination);
             while (true) {
-                //ÉèÖÃ½ÓÊÕÕß½ÓÊÕÏûÏ¢µÄÊ±¼ä£¬ÎªÁË±ãÓÚ²âÊÔ£¬ÕâÀïË­¶¨Îª100s
+                //è®¾ç½®æ¥æ”¶è€…æ¥æ”¶æ¶ˆæ¯çš„æ—¶é—´ï¼Œä¸ºäº†ä¾¿äºæµ‹è¯•ï¼Œè¿™é‡Œè°å®šä¸º100s
                 TextMessage message = (TextMessage) consumer.receive(100000);
                 if (null != message) {
-                    System.out.println("ÊÕµ½ÏûÏ¢" + message.getText());
+                    System.out.println("æ”¶åˆ°æ¶ˆæ¯" + message.getText());
                 } else {
                     break;
                 }

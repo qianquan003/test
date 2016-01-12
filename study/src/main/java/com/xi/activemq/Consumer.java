@@ -16,7 +16,7 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 /**
- * queue:ÏûÏ¢Ïû·ÑÕß
+ * queue:æ¶ˆæ¯æ¶ˆè´¹è€…
  */
 public class Consumer {
     public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class Consumer {
                 public void onMessage(Message msg) {
                     MapMessage message = (MapMessage) msg;
                     try {
-                        System.out.println("½ÓÊÕ¶ËÊÕµ½ÏûÏ¢£¬" + message.getString("seqnum") + ":" + new Date(message.getLong("data")));
+                        System.out.println("æ¥æ”¶ç«¯æ”¶åˆ°æ¶ˆæ¯ï¼Œ" + message.getString("seqnum") + ":" + new Date(message.getLong("data")));
                         session.commit();
                     } catch (JMSException e) {
                         e.printStackTrace();

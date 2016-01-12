@@ -21,7 +21,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 
 /**
- * <b>function:</b> Spring JMSTemplate ÏûÏ¢·¢ËÍÕß
+ * <b>function:</b> Spring JMSTemplate æ¶ˆæ¯å‘é€è€…
  */
 public class Sender {
     public static void main(String[] args) {

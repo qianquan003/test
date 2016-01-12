@@ -19,23 +19,23 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 /**
- * 1¡¢ Ê¹ÓÃJMS·½Ê½·¢ËÍ½ÓÊÕÏûÏ¢
- * <b>function:</b> ÏûÏ¢·¢ËÍÕß
+ * 1ã€ ä½¿ç”¨JMSæ–¹å¼å‘é€æ¥æ”¶æ¶ˆæ¯
+ * <b>function:</b> æ¶ˆæ¯å‘é€è€…
  */
 public class MessageSender {
-    // ·¢ËÍ´ÎÊı
+    // å‘é€æ¬¡æ•°
     public static final int SEND_NUM = 5;
-    // tcp µØÖ·
+    // tcp åœ°å€
     public static final String BROKER_URL = "tcp://localhost:61616";
-    // Ä¿±ê£¬ÔÚActiveMQ¹ÜÀíÔ±¿ØÖÆÌ¨´´½¨ http://localhost:8161/admin/queues.jsp
+    // ç›®æ ‡ï¼Œåœ¨ActiveMQç®¡ç†å‘˜æ§åˆ¶å°åˆ›å»º http://localhost:8161/admin/queues.jsp
     public static final String DESTINATION = "hoo.mq.queue";
 
     /**
-     * <b>function:</b> ·¢ËÍÏûÏ¢
+     * <b>function:</b> å‘é€æ¶ˆæ¯
      */
     public static void sendMessage(Session session, MessageProducer producer) throws Exception {
         for (int i = 0; i < SEND_NUM; i++) {
-            String message = "hello,·¢ËÍÏûÏ¢µÚ" + (i + 1) + "Ìõ";
+            String message = "hello,å‘é€æ¶ˆæ¯ç¬¬" + (i + 1) + "æ¡";
             TextMessage text = session.createTextMessage(message);
             System.out.println(message);
             producer.send(text);
@@ -46,27 +46,27 @@ public class MessageSender {
         Connection connection = null;
         Session session = null;
         try {
-            // ´´½¨Á´½Ó¹¤³§
+            // åˆ›å»ºé“¾æ¥å·¥å‚
             ConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, BROKER_URL);
-            // Í¨¹ı¹¤³§´´½¨Ò»¸öÁ¬½Ó
+            // é€šè¿‡å·¥å‚åˆ›å»ºä¸€ä¸ªè¿æ¥
             connection = factory.createConnection();
-            // Æô¶¯Á¬½Ó
+            // å¯åŠ¨è¿æ¥
             connection.start();
-            // ´´½¨Ò»¸ösession»á»°
+            // åˆ›å»ºä¸€ä¸ªsessionä¼šè¯
             session = connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
-            // ´´½¨Ò»¸öÏûÏ¢¶ÓÁĞ
+            // åˆ›å»ºä¸€ä¸ªæ¶ˆæ¯é˜Ÿåˆ—
             Destination destination = session.createQueue(DESTINATION);
-            // ´´½¨ÏûÏ¢ÖÆ×÷Õß
+            // åˆ›å»ºæ¶ˆæ¯åˆ¶ä½œè€…
             MessageProducer producer = session.createProducer(destination);
-            // ÉèÖÃ³Ö¾Ã»¯Ä£Ê½
+            // è®¾ç½®æŒä¹…åŒ–æ¨¡å¼
             producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
             sendMessage(session, producer);
-            // Ìá½»»á»°
+            // æäº¤ä¼šè¯
             session.commit();
         } catch (Exception e) {
             throw e;
         } finally {
-            // ¹Ø±ÕÊÍ·Å×ÊÔ´
+            // å…³é—­é‡Šæ”¾èµ„æº
             if (session != null) {
                 session.close();
             }
