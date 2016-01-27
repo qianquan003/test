@@ -82,7 +82,24 @@ public class SendMail {
         obj.put("subject",subject);
         String content="content";
         obj.put("content",content);
-        SendMail sm=new SendMail("sd61ts1@163.com",obj);
-        sm.send();
+        SendMail sm=new SendMail("157309341@qq.com",obj);
+//        sm.send();
+        if(sm.send()){
+            System.out.println(" send sucess");
+        }else{
+            System.out.println("send fail");
+        }
+    }
+    public  void mySendEmail(String email,String subject,String content){
+//        email="157309341@qq.com";
+        Map<String,Object> obj=new HashMap<String, Object>();
+        obj.put("subject",subject);
+        obj.put("content",content);
+        SendMail sm=new SendMail(email,obj);
+        if(sm.send()){
+            System.out.println(" send sucess");
+        }else{
+            System.out.println("send fail");
+        }
     }
 }
