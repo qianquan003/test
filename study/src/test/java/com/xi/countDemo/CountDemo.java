@@ -5,27 +5,27 @@ import java.text.DecimalFormat;
 
 /**
  * Created by Administrator on 2015/12/26.
- * javaÖĞ£¬µ±Á½¸öÕûÊıÏà³ıÊ±£¬ÓÉÓÚĞ¡ÊıµãÒÔºóµÄÊı×Ö»á±»½Ø¶Ï£¬ÔËËã½á¹û½«ÎªÕûÊı£¬´ËÊ±ÈôÏ£ÍûµÃµ½ÔËËã½á¹ûÎª¸¡µãÊı£¬±ØĞë½«Á½ÕûÊıÆäÒ»»òÊÇÁ½Õß¶¼Ç¿ÖÆ×ª»»Îª¸¡µãÊı¡£
- ÀıÈç£º
- (float)a/b // ½«ÕûÊıÆäÖĞÒ»¸öÇ¿ÖÆ×ª»»Îª¸¡µãÊı£¬ÔÙÓëÁíÒ»¸öÕûÊıÏà³ı
+ * javaä¸­ï¼Œå½“ä¸¤ä¸ªæ•´æ•°ç›¸é™¤æ—¶ï¼Œç”±äºå°æ•°ç‚¹ä»¥åçš„æ•°å­—ä¼šè¢«æˆªæ–­ï¼Œè¿ç®—ç»“æœå°†ä¸ºæ•´æ•°ï¼Œæ­¤æ—¶è‹¥å¸Œæœ›å¾—åˆ°è¿ç®—ç»“æœä¸ºæµ®ç‚¹æ•°ï¼Œå¿…é¡»å°†ä¸¤æ•´æ•°å…¶ä¸€æˆ–æ˜¯ä¸¤è€…éƒ½å¼ºåˆ¶è½¬æ¢ä¸ºæµ®ç‚¹æ•°ã€‚
+ ä¾‹å¦‚ï¼š
+ (float)a/b // å°†æ•´æ•°å…¶ä¸­ä¸€ä¸ªå¼ºåˆ¶è½¬æ¢ä¸ºæµ®ç‚¹æ•°ï¼Œå†ä¸å¦ä¸€ä¸ªæ•´æ•°ç›¸é™¤
  a/(float)b
- (float)a/(float)b // ½«Á½¸öÕûÊıÍ¬Ê±Ç¿ÖÆ×ª»»Îª¸¡µãÊıºóÔÙÏà³ı
- Java´úÂë
+ (float)a/(float)b // å°†ä¸¤ä¸ªæ•´æ•°åŒæ—¶å¼ºåˆ¶è½¬æ¢ä¸ºæµ®ç‚¹æ•°åå†ç›¸é™¤
+ Javaä»£ç 
  float num= (float)2/3;
- DecimalFormat df = new DecimalFormat("0.00");//¸ñÊ½»¯Ğ¡Êı
- String s = df.format(num);//·µ»ØµÄÊÇStringÀàĞÍ
+ DecimalFormat df = new DecimalFormat("0.00");//æ ¼å¼åŒ–å°æ•°
+ String s = df.format(num);//è¿”å›çš„æ˜¯Stringç±»å‹
  */
 public class CountDemo {
     public static void main(String[] args) {
         Double a=1099.95;
         Double b=2100.00;
         Double d=a/b;
-//        d = Math.floor(d*Math.pow(10,4))/Math.pow(10,4);//½ØÈ¡ËÄÎ»³¤¶È
+//        d = Math.floor(d*Math.pow(10,4))/Math.pow(10,4);//æˆªå–å››ä½é•¿åº¦
 //        Double d3=(Math.round((a/b)*10000)/10000.0);
         DecimalFormat df=new DecimalFormat("#.####");
-        Double d2=Double.valueOf(df.format(d));//¸ñÊ½»¯ºóÊä³öµÄÊÇ3.0E-4
+        Double d2=Double.valueOf(df.format(d));//æ ¼å¼åŒ–åè¾“å‡ºçš„æ˜¯3.0E-4
         System.out.println(d2);
-        //¸ñÊ½»¯Ğ¡ÊıµãÎ»Êı
+        //æ ¼å¼åŒ–å°æ•°ç‚¹ä½æ•°
 //        double cashFlow=23.43421;
 //        BigDecimal dou = new BigDecimal(cashFlow);
 //        double dcashFlow = dou.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();

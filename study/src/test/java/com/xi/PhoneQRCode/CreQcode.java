@@ -35,19 +35,26 @@ public class CreQcode {
 //  这里也是有原因的,因为微信扫描二维码后会进行二次加工,
 //  这里加工的时候,是用java代码的,因为是android系统,所以在
 //  java中的回车是\n,因此这里就要用\n来分割
+            String name="潘勇刚";
+            String email="365851020@qq.com";
+            String tel="13330122654";
+            String cell="";
+            String adr="江西新余";
+            String org="高安二中";
+            String title="教师";
+            String url="http://365851020.qzone.qq.com/";
+            String note="呼呼测试下吧。。。";
             String content = "BEGIN:VCARD\n" +
                     "VERSION:3.0\n" +
-                    "N:李德伟\n" +
-                    "EMAIL:1606841559@qq.com\n" +
-                    "TEL:12345678912\n" +
-//                    "TEL;CELL:12345678912" +
-                    "CELL:12345678912\n" +
-                    "ADR:山东济南齐鲁软件园\n" +
-                    "ORG:" +
-                    "济南\n" +
-                    "TITLE:软件工程师\n" +
-                    "URL:http://blog.csdn.net/lidew521\n" +
-                    "NOTE:呼呼测试下吧。。。\n" +
+                    "N:"+name+"\n" +
+                    "EMAIL:"+email+"\n" +
+                    "TEL:"+tel+"\n" +
+                    "CELL:"+cell+"\n" +
+                    "ADR:"+adr+"\n" +
+                    "ORG:"+org+"\n" +
+                    "TITLE:"+title+"\n" +
+                    "URL:"+url+"\n" +
+                    "NOTE:"+note+"\n" +
                     "END:VCARD";
             String path = "D:/";
 
@@ -57,7 +64,7 @@ public class CreQcode {
             Map hints = new HashMap();
             hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
             BitMatrix bitMatrix = multiFormatWriter.encode(content, BarcodeFormat.QR_CODE, 400, 400, hints);
-            File file1 = new File(path, "名片.jpg");
+            File file1 = new File(path, name+"名片.jpg");
 
 
             MatrixToImageWriter.writeToFile(bitMatrix, "jpg", file1);
