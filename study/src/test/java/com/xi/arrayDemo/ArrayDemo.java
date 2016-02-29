@@ -56,6 +56,12 @@ public class ArrayDemo {
 //        System.out.println(j);
         //将一个数组列表转换为数组
         String[] stringArray = { "a", "b", "c", "d", "e","a" };
+        System.out.println("arraylength:"+stringArray.length);
+        String str="hello";
+        System.out.println("stringlength:"+str.length());
+        Set set=new HashSet();
+        set.add(stringArray);
+        System.out.println(set.iterator());
 //        ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(stringArray));
 //        String[] stringArr = new String[arrayList.size()];
 //        arrayList.toArray(stringArr);
@@ -73,9 +79,23 @@ public class ArrayDemo {
 //        int[] removed = ArrayUtils.removeElement(intArray, 3);//create a new array
 //        System.out.println(Arrays.toString(removed));
         //将整数转换为字节数组
-        byte[] bytes = ByteBuffer.allocate(4).putInt(8).array();
-        for (byte t : bytes) {
-            System.out.format("0x%x ", t);
+//        byte[] bytes = ByteBuffer.allocate(4).putInt(8).array();
+//        for (byte t : bytes) {
+//            System.out.format("0x%x ", t);
+//        }
+        //二维矩阵转至
+        int[][] a={{1,2,3,4},{2,3,4,5},{3,4,5,6}};
+        int[][] b=new int[4][3];
+        for(int i=0;i<a.length;i++){
+            for(int j=0;j<a[i].length;j++){
+                b[j][i]=a[i][j];
+            }
+        }
+        for(int i=0;i<b.length;i++){
+            for(int j=0;j<b[i].length;j++){
+                System.out.print(b[i][j]+" ");
+            }
+            System.out.println();
         }
     }
 }
