@@ -2,6 +2,8 @@ package com.xi.countDemo;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Administrator on 2015/12/26.
@@ -17,18 +19,56 @@ import java.text.DecimalFormat;
  */
 public class CountDemo {
     public static void main(String[] args) {
-        Double a=1099.95;
+        countyear();
+//        System.out.println(countyear());
+//        System.out.println(getWeekDay("2007-07-20"));
+
+       /* Double a=1099.95;
         Double b=2100.00;
         Double d=a/b;
 //        d = Math.floor(d*Math.pow(10,4))/Math.pow(10,4);//截取四位长度
 //        Double d3=(Math.round((a/b)*10000)/10000.0);
         DecimalFormat df=new DecimalFormat("#.####");
         Double d2=Double.valueOf(df.format(d));//格式化后输出的是3.0E-4
-        System.out.println(d2);
+        System.out.println(d2)*/;
         //格式化小数点位数
 //        double cashFlow=23.43421;
 //        BigDecimal dou = new BigDecimal(cashFlow);
 //        double dcashFlow = dou.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 //        System.out.println(dcashFlow);
+    }
+    //有个人的生日是阳历7月20日，请输出2007-2020年之间.这个人每年的生日究竟是星期几
+    public static void countyear(){
+        int year=2007;
+        int sum=0;
+       for(;year<=2020;year++){
+//           String dateStr = new StringBuilder().append(year).append("-07-20").toString();
+           String dateStr=year+"-07-20";
+           System.out.println(dateStr+" ===> "+getWeekDay(dateStr));
+           sum++;
+       }
+        System.out.println(sum);
+    }
+    public static int countyear2(){
+        int year=2007;
+        int sum=0;
+        for(;year<=2020;year++){
+//           System.out.println(year);
+            sum++;
+        }
+//        System.out.println(sum);
+        return sum;
+    }
+    public static String getWeekDay(String DateStr){
+        SimpleDateFormat sdfYYYYMMDD=new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdfE=new SimpleDateFormat("E");
+        String weekDay=null;
+        try{
+            Date date=sdfYYYYMMDD.parse(DateStr);
+            weekDay=sdfE.format(date);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return weekDay;
     }
 }
