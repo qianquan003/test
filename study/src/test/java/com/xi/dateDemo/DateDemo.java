@@ -10,30 +10,30 @@ import java.util.Date;
  * Created by Administrator on 2015/12/26.
  */
 public class DateDemo {
-   /* public static void main(String[] args) {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        df.format(new Date());
-        String time="2015-03-30 17:26:24.680";
-        System.out.println(Timestamp.valueOf(time));
-    }*/
-   public static void main(String[] args) throws ParseException {
-       // TODO Auto-generated method stub
+    /* public static void main(String[] args) {
+         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+         df.format(new Date());
+         String time="2015-03-30 17:26:24.680";
+         System.out.println(Timestamp.valueOf(time));
+     }*/
+    public static void main(String[] args) throws ParseException {
+        // TODO Auto-generated method stub
 //       SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //       Date d1=sdf.parse("2012-09-08 10:10:10");
 //       Date d2=sdf.parse("2012-09-15 00:00:00");
 //       System.out.println(daysBetween(d1,d2));
 //
 //       System.out.println(daysBetween("2012-09-08 10:10:10","2012-09-15 00:00:00"));
-       String d1="2015-03-31";
-       String d2="2015-07-14";
-       System.out.println(daysBetween(d1,d2));
-   }
+        String d1="2015-03-31";
+        String d2="2015-07-14";
+        System.out.println(daysBetween(d1,d2));
+    }
 
     /**
-     * ¼ÆËãÁ½¸öÈÕÆÚÖ®¼äÏà²îµÄÌìÊı
-     * @param smdate ½ÏĞ¡µÄÊ±¼ä
-     * @param bdate  ½Ï´óµÄÊ±¼ä
-     * @return Ïà²îÌìÊı
+     * è®¡ç®—ä¸¤ä¸ªæ—¥æœŸä¹‹é—´ç›¸å·®çš„å¤©æ•°
+     * @param smdate è¾ƒå°çš„æ—¶é—´
+     * @param bdate  è¾ƒå¤§çš„æ—¶é—´
+     * @return ç›¸å·®å¤©æ•°
      * @throws ParseException
      */
     public static int daysBetween(Date smdate,Date bdate) throws ParseException
@@ -52,7 +52,7 @@ public class DateDemo {
     }
 
     /**
-     *×Ö·û´®µÄÈÕÆÚ¸ñÊ½µÄ¼ÆËã
+     *å­—ç¬¦ä¸²çš„æ—¥æœŸæ ¼å¼çš„è®¡ç®—
      */
     public static int daysBetween(String smdate,String bdate) throws ParseException{
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
