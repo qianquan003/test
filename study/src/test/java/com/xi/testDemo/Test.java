@@ -1,5 +1,6 @@
 package com.xi.testDemo;
 
+import java.io.File;
 import java.util.*;
 
 /**
@@ -7,6 +8,11 @@ import java.util.*;
  */
 public class Test {
     public static void main(String[] args) {
+        File file =new File("D:\\xm");
+        File[] files=file.listFiles();
+        for(File f:files){
+            System.out.println("file name:"+f.getName()+"|| file path:"+f.toString());
+        }
         /*List<Object[]> incomeList = new ArrayList();
         incomeList.add(new Object[]{1, "2015-10-11", "LZL-980-2-402-D-20120511", 22.11, 122.22, 0, 0});
         incomeList.add(new Object[]{2, "2015-10-12", "GYL-99-6-602-D-20120511", 55.55, 144.00, 0, 0});
@@ -15,7 +21,7 @@ public class Test {
         costList.add(new Object[]{1, "2015-10-11", "", 0, 0, 10.10, 20.22});
         costList.add(new Object[]{2, "2015-10-12", "", 0, 0, 54.11, 33.33});
         costList.add(new Object[]{3, "2015-10-13", "", 0, 0, 26.21, 32.00});*/
-        System.out.println(function(10));
+//        System.out.println(function(10));
     }
     //0,1,1,2,3,5,8,13.。。写出第10个数是多少
     //已知：faibonacci（费波那契）数列的前几个数分别为0，1，1，2，3，5，……。 从第3 项开始，每一项都等于前两项的和。

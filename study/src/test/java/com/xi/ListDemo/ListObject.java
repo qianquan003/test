@@ -33,12 +33,19 @@ public class ListObject {
         }
     }
 
-    public static void remove(List<String> list) {
-        Iterator<String> it=list.iterator();
-        while(it.hasNext()){
-            String str=it.next();
-            if(str.length()==3){
-                it.remove();
+//    public static void remove(List<String> list) {
+//        Iterator<String> it=list.iterator();
+//        while(it.hasNext()){
+//            String str=it.next();
+//            if(str.length()==3){
+//                it.remove();
+//            }
+//        }
+//    }
+    public static void remove(List<String> list){
+        for(int i=list.size()-1;i>0;i--){
+            if(list.get(i).length()==3){
+                list.remove(i);
             }
         }
     }
