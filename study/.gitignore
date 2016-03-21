@@ -9,4 +9,4 @@ src/main/resources/resources/bower_components
 target
 src/test/resources/config.properties
 src/main/resources/config.properties
-src/test/java/com/xi/json/tel.json
+tel.json
