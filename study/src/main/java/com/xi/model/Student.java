@@ -5,10 +5,10 @@ package com.xi.model;
  */
 public class Student {
     private long id;
-    private String num;
-    private String name;
-    private String sex;
-    private int age;
+    private String num;//学号
+    private String name;//姓名
+    private String sex;//性别
+    private int age;//年龄
 
     public Student() {
     }
