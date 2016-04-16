@@ -1,5 +1,6 @@
 package com.xi.testDemo;
 
+import java.io.File;
 import java.util.*;
 
 /**
@@ -7,6 +8,11 @@ import java.util.*;
  */
 public class Test {
     public static void main(String[] args) {
+        File file =new File("D:\\xm");
+        File[] files=file.listFiles();
+        for(File f:files){
+            System.out.println("file name:"+f.getName()+"|| file path:"+f.toString());
+        }
         /*List<Object[]> incomeList = new ArrayList();
         incomeList.add(new Object[]{1, "2015-10-11", "LZL-980-2-402-D-20120511", 22.11, 122.22, 0, 0});
         incomeList.add(new Object[]{2, "2015-10-12", "GYL-99-6-602-D-20120511", 55.55, 144.00, 0, 0});
@@ -15,11 +21,11 @@ public class Test {
         costList.add(new Object[]{1, "2015-10-11", "", 0, 0, 10.10, 20.22});
         costList.add(new Object[]{2, "2015-10-12", "", 0, 0, 54.11, 33.33});
         costList.add(new Object[]{3, "2015-10-13", "", 0, 0, 26.21, 32.00});*/
-        System.out.println(function(10));
+//        System.out.println(function(10));
     }
-    //0,1,1,2,3,5,8,13.¡£¡£Ğ´³öµÚ10¸öÊıÊÇ¶àÉÙ
-    //ÒÑÖª£ºfaibonacci£¨·Ñ²¨ÄÇÆõ£©ÊıÁĞµÄÇ°¼¸¸öÊı·Ö±ğÎª0£¬1£¬1£¬2£¬3£¬5£¬¡­¡­¡£ ´ÓµÚ3 Ïî¿ªÊ¼£¬Ã¿Ò»Ïî¶¼µÈÓÚÇ°Á½ÏîµÄºÍ¡£
-    // ¶ÁÈëÒ»¸öÕûÊın£¬±à³ÌÇó³ö´ËÊıÁĞµÄÇ°n ÏîµÄºÍ¡£ ×¢Òâ£ºÕâÀïµÄÊıÁĞÊÇ´Ó0 ¿ªÊ¼µÄ¡£ 0 1 1 2 3 5 8 13 ....
+    //0,1,1,2,3,5,8,13.ã€‚ã€‚å†™å‡ºç¬¬10ä¸ªæ•°æ˜¯å¤šå°‘
+    //å·²çŸ¥ï¼šfaibonacciï¼ˆè´¹æ³¢é‚£å¥‘ï¼‰æ•°åˆ—çš„å‰å‡ ä¸ªæ•°åˆ†åˆ«ä¸º0ï¼Œ1ï¼Œ1ï¼Œ2ï¼Œ3ï¼Œ5ï¼Œâ€¦â€¦ã€‚ ä»ç¬¬3 é¡¹å¼€å§‹ï¼Œæ¯ä¸€é¡¹éƒ½ç­‰äºå‰ä¸¤é¡¹çš„å’Œã€‚
+    // è¯»å…¥ä¸€ä¸ªæ•´æ•°nï¼Œç¼–ç¨‹æ±‚å‡ºæ­¤æ•°åˆ—çš„å‰n é¡¹çš„å’Œã€‚ æ³¨æ„ï¼šè¿™é‡Œçš„æ•°åˆ—æ˜¯ä»0 å¼€å§‹çš„ã€‚ 0 1 1 2 3 5 8 13 ....
     public static int function(int n){
         if(n<2){
             return 0;
