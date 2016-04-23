@@ -5,6 +5,8 @@ import com.xi.model.Student;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -15,17 +17,13 @@ public class Server2 {
     public static final int SERVER_PORT = 8888;
 
     public void server() {
-        Student student=new Student();
         BufferedReader br =null;
         PrintWriter pw =null;
         String readLine=null;
-        FileWriter fw= null;
         try {
             ServerSocket ss = new ServerSocket(SERVER_PORT);
             while(!"bye".equals(readLine)){
                 Socket socket = ss.accept();
-                fw = new FileWriter("D:\\socket.txt");
-                BufferedWriter bw=new BufferedWriter(fw);
                 //得到接收的这个Socket的输入流，并封装成一个BufferedReader()
                 br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 readLine=br.readLine();
@@ -35,15 +33,10 @@ public class Server2 {
                 System.out.print("我server：");
                 Scanner sc = new Scanner(System.in);
 //                String str=sc.nextLine();
-                student.setName(sc.nextLine());
-                if(student.getName()!=null){
-                    bw.write("client:" +student.getName()+"\r\n");
-                }
+                writefileString("server：",sc.nextLine());
                 pw.println(sc.nextLine());
 
                 //关闭相应的资源
-                bw.close();
-                fw.close();
                 br.close();
                 pw.close();
                 socket.close();
@@ -52,25 +45,34 @@ public class Server2 {
             e.printStackTrace();
         }
     }
-    public static void writefileString() {
+    public static void writefileString(String name,String str) {
         FileWriter fw= null;
         try {
-            fw = new FileWriter("D:\\logFile.txt");
-            BufferedWriter bw=new BufferedWriter(fw);
-            BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-            String c=br.readLine();
-            while(!c.equals("stop")){
-                bw.write(c+"\r\n");
-                c=br.readLine();
-            }
+            fw = new FileWriter("D:\\socket.txt",true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            df.format(new Date());
+//            System.out.println(df.format(new Date()));
+            bw.write(df.format(new Date())+"  "+name+str+"\r\n");
+            bw.flush();
+//            BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+//            String c=br.readLine();
+//            while(!c.equals("stop")){
+//                bw.write(c+"\r\n");
+//                c=br.readLine();
+//            }
             bw.close();
             fw.close();
-            br.close();
+//            br.close();
+            bw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public static void main(String[] args) {
         new Server2().server();
+//        Scanner sc=new Scanner(System.in);
+//        String str=sc.nextLine();
+//        writefileString(str);
     }
 }
