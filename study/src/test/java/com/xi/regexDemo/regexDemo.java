@@ -39,8 +39,9 @@ public class regexDemo {
         String a="江海新村(B)11幢134号301室A室";
         String b="江海新村(B)11幢134号301室";
         String c="A室";
+        String d="好301室";
 //        String a="东方路1881弄20号1001室G室";
 //        String b="东方路1881弄20号1001室";
-        new regexDemo().replace(SpecialCharReplace.StringFilter(a),SpecialCharReplace.StringFilter(b));
+        new regexDemo().replace(SpecialCharReplace.StringFilter(a),SpecialCharReplace.StringFilter(d));
     }
 }
