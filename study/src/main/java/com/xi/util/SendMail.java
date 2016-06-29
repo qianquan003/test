@@ -67,8 +67,8 @@ public class SendMail {
                 }
             }
             senderImpl.setHost("smtp.163.com");
-            senderImpl.setUsername(PropertiesUtils.getProperty("email"));
-            senderImpl.setPassword(PropertiesUtils.getProperty("password"));
+            senderImpl.setUsername("sd61ts1@163.com");//PropertiesUtils.getProperty("email")
+            senderImpl.setPassword("sd61ts");//PropertiesUtils.getProperty("password")
             senderImpl.send(mailMessage);
             return true;
         } catch (Exception e) {
