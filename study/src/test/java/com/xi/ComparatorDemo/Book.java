@@ -42,17 +42,17 @@ public class Book implements Comparable { // 定义名为Book的类，默认继�
         return this.id - b.id; // 按书的id比较大小，用于默认排序  
     }  
   
-    public static void main(String[] args) {  
-        Book b1 = new Book(10000, "红楼梦", 150.86, new GregorianCalendar(2009,  
-                01, 25), "曹雪芹、高鄂");  
-        Book b2 = new Book(10001, "三国演义", 99.68, new GregorianCalendar(2008, 7,  
+    public static void main(String[] args) {
+        Book b2 = new Book(10001, "三国演义", 110.68, new GregorianCalendar(2008, 7,
                 8), "罗贯中 ");  
         Book b3 = new Book(10002, "水浒传", 100.8, new GregorianCalendar(2009, 6,  
                 28), "施耐庵 ");  
         Book b4 = new Book(10003, "西游记", 120.8, new GregorianCalendar(2011, 6,  
                 8), "吴承恩");  
-        Book b5 = new Book(10004, "天龙八部", 10.4, new GregorianCalendar(2011, 9,  
-                23), "搜狐");  
+        Book b5 = new Book(10004, "天龙八部", 100.4, new GregorianCalendar(2011, 9,
+                23), "金庸");
+        Book b1 = new Book(10000, "红楼梦", 100.86, new GregorianCalendar(2009,
+                01, 25), "曹雪芹、高鄂");
         TreeMap tm = new TreeMap();  
         tm.put(b1, new Integer(255));  
         tm.put(b2, new Integer(122));  
