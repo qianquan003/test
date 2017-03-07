@@ -18,7 +18,7 @@ public class ArrayDemo {
 //        String[] aArray = new String[5];
 //        String[] bArray = {"a","b","c", "d", "e"};
 //        String[] cArray = new String[]{"a","b","c","d","e"};
-//        System.out.println(aArray[1]);
+//        System.out.println(aArray[0]);
 //        System.out.println(bArray[2]);
 //        System.out.println(cArray[3]);
         // 输出一个数组
@@ -55,13 +55,13 @@ public class ArrayDemo {
 //        String j = StringUtils.join(new String[]{"a", "b", "c"}, ", ");
 //        System.out.println(j);
         //将一个数组列表转换为数组
-        String[] stringArray = { "a", "b", "c", "d", "e","a" };
+        /*String[] stringArray = { "a", "b", "c", "d", "e","a" };
         System.out.println("arraylength:"+stringArray.length);
         String str="hello";
         System.out.println("stringlength:"+str.length());
         Set set=new HashSet();
         set.add(stringArray);
-        System.out.println(set.iterator());
+        System.out.println(set.iterator());*/
 //        ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(stringArray));
 //        String[] stringArr = new String[arrayList.size()];
 //        arrayList.toArray(stringArr);
@@ -84,7 +84,7 @@ public class ArrayDemo {
 //            System.out.format("0x%x ", t);
 //        }
         //二维矩阵转至
-        int[][] a={{1,2,3,4},{2,3,4,5},{3,4,5,6}};
+        /*int[][] a={{1,2,3,4},{2,3,4,5},{3,4,5,6}};
         int[][] b=new int[4][3];
         for(int i=0;i<a.length;i++){
             for(int j=0;j<a[i].length;j++){
@@ -96,6 +96,6 @@ public class ArrayDemo {
                 System.out.print(b[i][j]+" ");
             }
             System.out.println();
-        }
+        }*/
     }
 }
