@@ -61,10 +61,11 @@ public final class QRCodeDemo {
         }
     }
     public static void main(String[] args) throws Exception {
-        telDemo t = new telDemo();
-        List s = t.tel();
-        System.out.println(s);
-        String text = Utils.ListToString(s).substring(0,100);
+//        telDemo t = new telDemo();
+//        List s = t.tel();
+//        System.out.println(s);
+//        String text = Utils.ListToString(s).substring(0,100);
+        String text = "http://192.168.4.101:8080/test/test.jsp";
         int width = 300;
         int height = 300;
         //二维码的图片格式
@@ -75,7 +76,7 @@ public final class QRCodeDemo {
         BitMatrix bitMatrix = new MultiFormatWriter().encode(text,
                 BarcodeFormat.QR_CODE, width, height, hints);
         //生成二维码
-        File outputFile = new File("d:"+File.separator+"new.gif");
+        File outputFile = new File("d:"+File.separator+"new.jpg");
         QRCodeDemo.writeToFile(bitMatrix, format, outputFile);
 
     }

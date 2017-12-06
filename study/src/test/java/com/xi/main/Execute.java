@@ -82,7 +82,7 @@ public class Execute {
                 System.out.println("非法成绩");
                 break;
         }*/
-        int result = 991;
+        /*int result = 991;
         if (result >= 0 && result <= 59) {
             System.out.println("不合格");
         } else if (result >= 60 && result <= 79) {
@@ -93,6 +93,16 @@ public class Execute {
             System.out.println("优秀");
         } else {
             System.out.println("非法成绩");
+        }*/
+        String str="wbdr-bmxx-201707120000";
+        for(int i=0;i<2685;i++){
+            if(i<10&&i>=0){
+                System.out.println("wbdr-bmxx-20170712200"+i);
+            }else if(i<100&&i>=10){
+                System.out.println("wbdr-bmxx-2017071220"+i);
+            }else if(i<684&&i>=100){
+                System.out.println("wbdr-bmxx-201707122"+i);
+            }
         }
     }
 }

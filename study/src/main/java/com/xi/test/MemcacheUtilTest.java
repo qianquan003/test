@@ -1,3 +1,4 @@
+/*
 package com.xi.test;
 
 import com.danga.MemCached.MemCachedClient;
@@ -16,10 +17,12 @@ public class MemcacheUtilTest {
     }
     @Test
     public void s() {
-        /*MemCachedClient m= SpringContextHolder.getBean("memcachedClient");
+        */
+/*MemCachedClient m= SpringContextHolder.getBean("memcachedClient");
         m.set("name", "yunhui");
-        System.out.println(m.get("name"));*/
+        System.out.println(m.get("name"));*//*
+
         CacheManager.set("name", "yunhui");
         System.out.println(CacheManager.get("name"));
     }
-}
+}*/
